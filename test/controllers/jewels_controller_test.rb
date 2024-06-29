@@ -17,7 +17,7 @@ class JewelsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create jewel" do
     assert_difference("Jewel.count") do
-      post jewels_url, params: { jewel: { description: @jewel.description, name: @jewel.name, url: @jewel.url, version: @jewel.version } }
+      post jewels_url, params: {jewel: {description: @jewel.description, name: @jewel.name, url: @jewel.url, version: @jewel.version}}
     end
 
     assert_redirected_to jewel_url(Jewel.last)
@@ -34,7 +34,7 @@ class JewelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update jewel" do
-    patch jewel_url(@jewel), params: { jewel: { description: @jewel.description, name: @jewel.name, url: @jewel.url, version: @jewel.version } }
+    patch jewel_url(@jewel), params: {jewel: {description: @jewel.description, name: @jewel.name, url: @jewel.url, version: @jewel.version}}
     assert_redirected_to jewel_url(@jewel)
   end
 

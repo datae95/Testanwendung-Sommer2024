@@ -1,5 +1,5 @@
 class JewelsController < ApplicationController
-  before_action :set_jewel, only: %i[ show edit update destroy ]
+  before_action :set_jewel, only: %i[show edit update destroy]
 
   # GET /jewels or /jewels.json
   def index
@@ -58,13 +58,14 @@ class JewelsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_jewel
-      @jewel = Jewel.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def jewel_params
-      params.require(:jewel).permit(:name, :version, :url, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_jewel
+    @jewel = Jewel.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def jewel_params
+    params.require(:jewel).permit(:name, :version, :url, :description)
+  end
 end
