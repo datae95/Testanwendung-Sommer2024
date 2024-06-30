@@ -52,6 +52,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows]
 
   gem "standardrb", "~> 1.0"
+  gem "letter_opener", "~> 1.10"
 end
 
 group :development do
