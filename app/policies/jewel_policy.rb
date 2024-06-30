@@ -1,13 +1,13 @@
 class JewelPolicy < ApplicationPolicy
   def index? = true
 
-  def new? = true
+  def new? = user.admin?
 
   def create? = new?
 
   def show? = true
 
-  def edit? = show?
+  def edit? = user.admin?
 
   def update? = edit?
 
