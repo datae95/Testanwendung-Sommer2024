@@ -3,7 +3,8 @@ class JewelsController < ApplicationController
 
   # GET /jewels or /jewels.json
   def index
-    @jewels = Jewel.all
+    authorize Jewel
+    @jewels = policy_scope Jewel.all
   end
 
   # GET /jewels/1 or /jewels/1.json
@@ -12,6 +13,7 @@ class JewelsController < ApplicationController
 
   # GET /jewels/new
   def new
+    authorize Jewel
     @jewel = Jewel.new
   end
 
@@ -22,6 +24,7 @@ class JewelsController < ApplicationController
   # POST /jewels or /jewels.json
   def create
     @jewel = Jewel.new(jewel_params)
+    authorize @jewel
 
     respond_to do |format|
       if @jewel.save
@@ -62,6 +65,7 @@ class JewelsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_jewel
     @jewel = Jewel.find(params[:id])
+    authorize @jewel
   end
 
   # Only allow a list of trusted parameters through.
